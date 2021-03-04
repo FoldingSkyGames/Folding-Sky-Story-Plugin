@@ -1,14 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #include "FoldingSkyStoryBlueprintNodes.h"
 
-void FFoldingSkyStoryBlueprintNodesModule::StartupModule()
-{
-
-}
-
-void FFoldingSkyStoryBlueprintNodesModule::ShutdownModule()
-{
-}
-
-#undef LOCTEXT_NAMESPACE
-	
 IMPLEMENT_MODULE(FFoldingSkyStoryBlueprintNodesModule, FoldingSkyStoryBlueprintNodes)

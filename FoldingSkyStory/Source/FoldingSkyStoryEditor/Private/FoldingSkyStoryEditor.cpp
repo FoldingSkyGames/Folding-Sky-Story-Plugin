@@ -1,14 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #include "FoldingSkyStoryEditor.h"
 
-void FFoldingSkyStoryEditorModule::StartupModule()
-{
-
-}
-
-void FFoldingSkyStoryEditorModule::ShutdownModule()
-{
-}
-
-#undef LOCTEXT_NAMESPACE
-	
 IMPLEMENT_MODULE(FFoldingSkyStoryEditorModule, FoldingSkyStoryEditor)

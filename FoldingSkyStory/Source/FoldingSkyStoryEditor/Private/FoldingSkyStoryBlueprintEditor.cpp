@@ -1,3 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #include "FoldingSkyStoryBlueprintEditor.h"
 #include "EditorReimportHandler.h"
 
@@ -10,16 +12,6 @@
 #include "Kismet2/BlueprintEditorUtils.h"
 
 #define LOCTEXT_NAMESPACE "FFoldingSkyStoryBlueprintEditor"
-
-FFoldingSkyStoryBlueprintEditor::FFoldingSkyStoryBlueprintEditor()
-{
-}
-
-FFoldingSkyStoryBlueprintEditor::~FFoldingSkyStoryBlueprintEditor()
-{
-}
-
-
 
 FName FFoldingSkyStoryBlueprintEditor::GetToolkitFName() const
 {

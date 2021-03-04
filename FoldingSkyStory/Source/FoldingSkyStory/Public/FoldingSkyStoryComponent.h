@@ -1,3 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -6,7 +8,7 @@
 #include "Components/ActorComponent.h"
 #include "FoldingSkyStoryComponent.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnStoryPosted, const bool, bIsReplayed, const FFoldingSkyStoryParams&, Params);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnStoryPosted, const bool, bIsReplayed, const FFoldingSkyStoryNodeParams&, Params);
 
 class APlayerController;
 class UPlayerStoryComponent;
@@ -25,7 +27,7 @@ public:
 	/**	Resends a story node with the node callback delegate, posting the story 
 	*	but not indicating it should be saved again, if a save system is in use. */
 	UFUNCTION(BlueprintCallable)
-		void ResendStory(const FOnStoryChoiceMade& ChoiceCallback, const FFoldingSkyStoryParams& Params);
+		void ResendStory(const FOnStoryChoiceMade& ChoiceCallback, const FFoldingSkyStoryNodeParams& Params);
 	/** Accepts a numeric value representing the choice on the blueprint node that is desired
 	*	-1 fires the cancellation event
 	*	invalid choice indicies will not be processed */
@@ -62,22 +64,18 @@ protected:
 	/** An event to be bound by the story blueprint graph, fired every time 
 	*	a story node is reached or story content has been supplied for posting */
 	UFUNCTION(BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Posted"))
-		void OnStoryPosted_BP(const bool bIsReplayed, const FFoldingSkyStoryParams& Params);
+		void OnStoryPosted_BP(const bool bIsReplayed, const FFoldingSkyStoryNodeParams& Params);
 	/**	called when the player interacting with this graph presses the 
 	*	accept binding this calls to OnStoryGetCurrentChoice_BP by default 
 	*	and will provide the choice supplied therein at that time */
 	UFUNCTION(BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Choice Accepted"))
 		void OnStoryChoiceAccepted_BP(const int32& Choice, const FText& ChoiceText);
-	/**	An important binding that will determine useful scene data such as speaker name,
-	*	speaker image, and speaker's anchor scene component in the world, if any */
-	UFUNCTION(BlueprintPure, BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Get Speaker Identity"))
-		FFoldingSkyStorySpeakerParams OnStoryGetSpeakerIdentity_BP() const;
 
 	/**	 calls the OnStoryPosted events and sets the proxy callback */
-	void PostStory(const bool bIsReplayed, const FFoldingSkyStoryParams& Params);
+	void PostStory(const bool bIsReplayed, const FFoldingSkyStoryNodeParams& Params);
 	/** Data involving the story node that is currently posted, includes the callback for the blueprint node */
 	UPROPERTY()
-		FFoldingSkyStoryParams CurrentPostedStory;
+		FFoldingSkyStoryNodeParams CurrentPostedStory;
 	/** Data involving the story node that is currently posted, includes the callback for the blueprint node */
 	UPROPERTY()
 		int32 ChosenValue = MIN_int32;

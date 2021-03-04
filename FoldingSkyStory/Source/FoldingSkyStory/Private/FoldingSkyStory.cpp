@@ -1,11 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #include "FoldingSkyStory.h"
-
-void FFoldingSkyStoryModule::StartupModule()
-{
-}
-
-void FFoldingSkyStoryModule::ShutdownModule()
-{
-}
 
 IMPLEMENT_MODULE(FFoldingSkyStoryModule, FoldingSkyStory)

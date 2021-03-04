@@ -1,11 +1,10 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #include "FoldingSkyStoryGraphSchema.h"
 #include "EdGraphSchema_K2_Actions.h"
 #include "Kismet2/BlueprintEditorUtils.h"
 
-UFoldingSkyStoryGraphSchema::UFoldingSkyStoryGraphSchema(const FObjectInitializer& ObjectInitializer)
-: Super(ObjectInitializer)
-{
-}
+UFoldingSkyStoryGraphSchema::UFoldingSkyStoryGraphSchema(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) { }
 
 UK2Node_VariableGet* UFoldingSkyStoryGraphSchema::SpawnVariableGetNode(const FVector2D GraphPosition, class UEdGraph* ParentGraph, FName VariableName, UStruct* Source) const
 {

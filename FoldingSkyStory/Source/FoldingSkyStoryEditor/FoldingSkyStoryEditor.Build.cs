@@ -1,3 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 using UnrealBuildTool;
 
 public class FoldingSkyStoryEditor : ModuleRules

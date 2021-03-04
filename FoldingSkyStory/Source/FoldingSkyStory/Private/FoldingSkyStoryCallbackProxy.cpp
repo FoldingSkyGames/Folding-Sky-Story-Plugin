@@ -1,3 +1,4 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
 
 #include "FoldingSkyStoryCallbackProxy.h"
 #include "FoldingSkyStoryComponent.h"
@@ -5,6 +6,16 @@
 
 DECLARE_LOG_CATEGORY_CLASS(LogStoryCallbackProxy, Log, All);
 
+
+UWorld* UBaseFoldingSkyStoryCallbackProxy::GetWorld() const
+{
+	return GetOuter() ? GetOuter()->GetWorld() : nullptr;
+}
+void UBaseFoldingSkyStoryCallbackProxy::BeginDestroy()
+{	
+	UE_LOG(LogStoryCallbackProxy, Log, TEXT("%s getting collected"), *GetName());
+	Super::BeginDestroy();
+}
 TArray<FOnStoryOptionChosen*> UOneWayFoldingSkyStoryCallbackProxy::GetStoryOptionPins()
 {
 	return TArray<FOnStoryOptionChosen*> { &OnWayOne };
@@ -74,8 +85,8 @@ void UBaseFoldingSkyStoryCallbackProxy::Trigger(UFoldingSkyStoryComponent* Story
 {
 	FOnStoryChoiceMade Callback;
 	Callback.BindDynamic(this, &UBaseFoldingSkyStoryCallbackProxy::OnOptionChosen);
-	const FFoldingSkyStoryNodeParams& NodeParams = FFoldingSkyStoryNodeParams(Callback, CustomData, Choices);
-	StoryComponent->SendStory_NodeInternalUseOnly(NodeParams);
+	//const FFoldingSkyStoryNodeParams& NodeParams = FFoldingSkyStoryNodeParams(Callback, CustomData, Choices);
+	//StoryComponent->SendStory_NodeInternalUseOnly(NodeParams);
 }
 
 void UBaseFoldingSkyStoryCallbackProxy::OnOptionChosen(int32 Option)

@@ -1,3 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -6,10 +8,8 @@
 class FFoldingSkyStoryBlueprintEditor : public FBlueprintEditor
 {
 public:
-	FFoldingSkyStoryBlueprintEditor();
-
-	virtual ~FFoldingSkyStoryBlueprintEditor();
-
+	FFoldingSkyStoryBlueprintEditor() { };
+	virtual ~FFoldingSkyStoryBlueprintEditor() { };
 public:
 	// IToolkit interface
 	virtual FName GetToolkitFName() const override;

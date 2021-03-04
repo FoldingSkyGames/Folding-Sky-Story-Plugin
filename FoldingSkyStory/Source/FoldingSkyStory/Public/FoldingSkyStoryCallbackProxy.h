@@ -1,3 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -21,6 +23,8 @@ class UBaseFoldingSkyStoryCallbackProxy : public UObject
 {
 	GENERATED_BODY()
 public:
+	virtual UWorld* GetWorld() const override;
+	virtual void BeginDestroy() override;
 	/** Fired every time any choice is made even if that choice is to cancel */
 	UPROPERTY(BlueprintAssignable)
 		FOnStoryOptionChosen OnComplete;

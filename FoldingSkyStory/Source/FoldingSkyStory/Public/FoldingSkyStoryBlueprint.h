@@ -1,3 +1,5 @@
+// Copyright Folding Sky Games LLC 2021 All rights reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -11,16 +13,12 @@ class FOLDINGSKYSTORY_API UFoldingSkyStoryBlueprint : public UBlueprint
 	GENERATED_BODY()
 public:
 	UFoldingSkyStoryBlueprint();
-#if WITH_EDITOR
-	
+#if WITH_EDITOR	
 	// UBlueprint interface
 	virtual bool SupportedByDefaultBlueprintFactory() const override
 	{
 		return false;
 	}
 	// End of UBlueprint interface
-
-	static UFoldingSkyStoryBlueprint* FindRootStoryBlueprint(UFoldingSkyStoryBlueprint* DerivedBlueprint);
-
 #endif
 };
