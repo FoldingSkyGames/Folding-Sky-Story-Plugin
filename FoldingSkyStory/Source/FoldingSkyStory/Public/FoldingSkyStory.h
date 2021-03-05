@@ -5,10 +5,6 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleInterface.h"
 
-class FFoldingSkyStoryModule : public IModuleInterface
+class IFoldingSkyStoryModuleInterface : public IModuleInterface
 {
-public:
-	FFoldingSkyStoryModule() { }
-	virtual void StartupModule() override { };
-	virtual void ShutdownModule() override { };
 };
