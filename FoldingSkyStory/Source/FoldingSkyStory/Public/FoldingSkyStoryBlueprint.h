@@ -7,7 +7,7 @@
 #include "Engine/Blueprint.h"
 #include "FoldingSkyStoryBlueprint.generated.h"
 
-UCLASS(BlueprintType, Category = "Story", meta = (DisplayName = "Folding Sky Story Blueprint", Category = "Story", Tooltip = "New Story Blueprint"))
+UCLASS(Category = "Story", meta = (DisplayName = "Story Blueprint", Tooltip = "New Story Blueprint"))
 class FOLDINGSKYSTORY_API UFoldingSkyStoryBlueprint : public UBlueprint
 {
 	GENERATED_BODY()

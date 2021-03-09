@@ -114,7 +114,7 @@ public:
 		FoldingSkyStoryBlueprintFactory = InFoldingSkyStoryBlueprintFactory;
 
 		TSharedRef<SWindow> Window = SNew(SWindow)
-			.Title(LOCTEXT("CreateFoldingSkyStoryBlueprintOptions", "Create Folding Sky Story Blueprint"))
+			.Title(LOCTEXT("CreateFoldingSkyStoryBlueprintOptions", "Create Story Blueprint"))
 			.ClientSize(FVector2D(400, 700))
 			.SupportsMinimize(false).SupportsMaximize(false)
 			[

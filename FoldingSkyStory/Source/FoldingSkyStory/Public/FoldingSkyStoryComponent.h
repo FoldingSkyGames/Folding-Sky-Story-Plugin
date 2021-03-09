@@ -13,7 +13,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnStoryPosted, const bool, bIsRepl
 class APlayerController;
 class UPlayerStoryComponent;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, DisplayName = "FS Story Blueprint")
 class FOLDINGSKYSTORY_API UFoldingSkyStoryComponent : public UActorComponent
 {
 	GENERATED_BODY()
