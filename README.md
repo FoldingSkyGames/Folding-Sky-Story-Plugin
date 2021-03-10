@@ -24,4 +24,4 @@ The Folding Sky Story Plugin is an additional set of blueprint nodes for narrati
 <p align="center">
   <img src="./GitAssets/OnStoryPosted.jpg" alt="Handle On Story Posted">
 </p>
-4. **Have fun!**
+4. The story blueprint can be placed in world on actors just like any Actor Component
