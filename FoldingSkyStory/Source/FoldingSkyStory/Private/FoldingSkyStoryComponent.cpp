@@ -38,6 +38,10 @@ void UFoldingSkyStoryComponent::ResendStory(const FOnStoryChoiceMade& ChoiceCall
 {
 	PostStory(true, Params);
 }
+void UFoldingSkyStoryComponent::DelayedPostStory(bool bIsReplayed, FFoldingSkyStoryNodeParams Params)
+{
+	PostStory(bIsReplayed, Params);
+}
 void UFoldingSkyStoryComponent::PostStory(const bool bIsReplayed, const FFoldingSkyStoryNodeParams& Params)
 {	
 	ChosenValue = MIN_int32;
@@ -52,13 +56,18 @@ void UFoldingSkyStoryComponent::AcceptChoiceValue(int32 Choice)
 	if (CurrentPostedStory.Choices.IsValidIndex(Choice) || Choice == -1)
 	{
 		ChosenValue = Choice;
-		const FText& ChoiceText = CurrentPostedStory.Choices.IsValidIndex(Choice) ? CurrentPostedStory.Choices[Choice] : FText::GetEmpty();
-		OnStoryChoiceAccepted_BP(Choice, ChoiceText);
-		if (CurrentPostedStory.NodeHardRef)
+		const FText ChoiceText = CurrentPostedStory.Choices.IsValidIndex(Choice) ? CurrentPostedStory.Choices[Choice] : FText::GetEmpty();
+		const UObject* OldNodeRef = CurrentPostedStory.NodeHardRef;
+		const FOnStoryChoiceMade OldNodeCallback = CurrentPostedStory.NodeCallback;
+		if (OldNodeRef) 
 		{
-			//UE_LOG(LogTemp, Log, TEXT("Calling node %s"), *CurrentPostedStory.NodeHardRef->GetName());
-			CurrentPostedStory.NodeHardRef = nullptr; // this should be an okay way to clear memory
-			CurrentPostedStory.NodeCallback.ExecuteIfBound(Choice);			
+			OnStoryChoiceAccepted_BP(Choice, ChoiceText);
+			OldNodeCallback.ExecuteIfBound(Choice); // to stop self forwarding when posting new nodes on callbacks
+			if (OldNodeRef == CurrentPostedStory.NodeHardRef)
+			{
+				CurrentPostedStory.NodeHardRef = nullptr;
+				CurrentPostedStory.NodeCallback.Clear();
+			}
 		}
 	}
 	else

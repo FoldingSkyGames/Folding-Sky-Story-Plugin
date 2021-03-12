@@ -13,7 +13,7 @@ UWorld* UBaseFoldingSkyStoryCallbackProxy::GetWorld() const
 }
 void UBaseFoldingSkyStoryCallbackProxy::BeginDestroy()
 {	
-	UE_LOG(LogStoryCallbackProxy, Log, TEXT("%s getting collected"), *GetName());
+	//UE_LOG(LogStoryCallbackProxy, Log, TEXT("%s getting collected"), *GetName());
 	Super::BeginDestroy();
 }
 TArray<FOnStoryOptionChosen*> UOneWayFoldingSkyStoryCallbackProxy::GetStoryOptionPins()

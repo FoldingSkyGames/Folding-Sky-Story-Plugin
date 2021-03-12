@@ -58,21 +58,21 @@ public:
 	TArray<FText> GetBinaryChoices() const;
 protected:
 	
-	/** An event to be bound by the story blueprint graph, signaling the story graphs hould begin traversal of it's nodes */
+	/** An event to be bound by the story blueprint graph, signaling the story graph should begin traversal of it's nodes */
 	UFUNCTION(BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Begin Graph"))
 		void OnStoryBeginGraph_BP();
 	/** An event to be bound by the story blueprint graph, fired every time 
 	*	a story node is reached or story content has been supplied for posting */
 	UFUNCTION(BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Posted"))
 		void OnStoryPosted_BP(const bool bIsReplayed, const FFoldingSkyStoryNodeParams& Params);
-	/**	called when the player interacting with this graph presses the 
-	*	accept binding this calls to OnStoryGetCurrentChoice_BP by default 
-	*	and will provide the choice supplied therein at that time */
+	/**	A BlueprintImplementableEvent to be bound by the story blueprint graph
+	*	called when AcceptChoiceValue is called and will provide the choice supplied therein at that time */
 	UFUNCTION(BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Choice Accepted"))
 		void OnStoryChoiceAccepted_BP(const int32& Choice, const FText& ChoiceText);
 
 	/**	 calls the OnStoryPosted events and sets the proxy callback */
 	void PostStory(const bool bIsReplayed, const FFoldingSkyStoryNodeParams& Params);
+	void DelayedPostStory(bool bIsReplayed, FFoldingSkyStoryNodeParams Params);
 	/** Data involving the story node that is currently posted, includes the callback for the blueprint node */
 	UPROPERTY()
 		FFoldingSkyStoryNodeParams CurrentPostedStory;

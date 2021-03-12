@@ -11,7 +11,7 @@ The Folding Sky Story Plugin is an additional set of blueprint nodes for narrati
 
 ## Usage
 
-1. Create a Story Blueprint from the "Create Advanced Asset -> Blueprints" context menu in editor
+1. Create a Story Blueprint by right cicking the content browser then from the "Create Advanced Asset -> Blueprints" context menu in editor
 <p align="center">
   <img src="./GitAssets/CreateStoryBlueprint.jpg" alt="Create Story Blueprint">
 </p>
