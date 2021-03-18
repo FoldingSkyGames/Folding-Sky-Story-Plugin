@@ -8,7 +8,7 @@
 #include "Components/ActorComponent.h"
 #include "FoldingSkyStoryComponent.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnStoryPosted, const bool, bIsReplayed, const FFoldingSkyStoryNodeParams&, Params);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStoryPosted, const FFoldingSkyStoryNodeParams&, Params);
 
 class APlayerController;
 class UPlayerStoryComponent;
@@ -22,35 +22,34 @@ public:
 	UFoldingSkyStoryComponent();
 	/** Fires the OnBeginStoryGraph event, call this to 
 	*	notify the blueprint it should begin traversing its story nodes  */
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category="Story|Component")
 		void BeginStoryGraph();
-	/**	Resends a story node with the node callback delegate, posting the story 
-	*	but not indicating it should be saved again, if a save system is in use. */
-	UFUNCTION(BlueprintCallable)
-		void ResendStory(const FOnStoryChoiceMade& ChoiceCallback, const FFoldingSkyStoryNodeParams& Params);
 	/** Accepts a numeric value representing the choice on the blueprint node that is desired
 	*	-1 fires the cancellation event
 	*	invalid choice indicies will not be processed */
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category = "Story|Component")
 		void AcceptChoiceValue(int32 Choice);
+	/**	Sends a set of story data through this component for posting */
+	UFUNCTION(BlueprintCallable, Category = "Story|Component")
+		void SendStory(const FFoldingSkyStoryNodeParams& Params);
 
 	/**	Fired when BeginStoryGraph() is called to notify the blueprint
 	*	it should start traversing it's story nodes */
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable, Category = "Story|Component")
 		FOnStoryActionEvent OnStoryBeginGraph;
 	/**	Called EVERY time a story node is reached on the blueprint graph, 
 	*	even when resending a previously sent node  */
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable, Category = "Story|Component")
 		FOnStoryPosted OnStoryPosted;
 
 	/**	The default text that will display for one way story nodes belonging to this story component  */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Story|Component")
 		FText OneWayOptionText;
 	/**	The default affirmative text that will display for two way story nodes belonging to this story component  */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Story|Component")
 		FText TwoWayStoryOptionOneText;
 	/**	The default negative text that will display for two way story nodes belonging to this story component  */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Story|Component")
 		FText TwoWayStoryOptionTwoText;
 
 	void SendStory_NodeInternalUseOnly(const FFoldingSkyStoryNodeParams& NodeParams);
@@ -59,20 +58,20 @@ public:
 protected:
 	
 	/** An event to be bound by the story blueprint graph, signaling the story graph should begin traversal of it's nodes */
-	UFUNCTION(BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Begin Graph"))
+	UFUNCTION(BlueprintImplementableEvent, Category = "Story|Component", meta = (DisplayName = "On Story Begin Graph"))
 		void OnStoryBeginGraph_BP();
 	/** An event to be bound by the story blueprint graph, fired every time 
+	/** An event to be bound by the story blueprint graph, fired every time 
 	*	a story node is reached or story content has been supplied for posting */
-	UFUNCTION(BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Posted"))
-		void OnStoryPosted_BP(const bool bIsReplayed, const FFoldingSkyStoryNodeParams& Params);
+	UFUNCTION(BlueprintImplementableEvent, Category = "Story|Component", meta = (DisplayName = "On Story Posted"))
+		void OnStoryPosted_BP(const FFoldingSkyStoryNodeParams& Params);
 	/**	A BlueprintImplementableEvent to be bound by the story blueprint graph
 	*	called when AcceptChoiceValue is called and will provide the choice supplied therein at that time */
-	UFUNCTION(BlueprintImplementableEvent, Category = Story, meta = (DisplayName = "On Story Choice Accepted"))
+	UFUNCTION(BlueprintImplementableEvent, Category = "Story|Component", meta = (DisplayName = "On Story Choice Accepted"))
 		void OnStoryChoiceAccepted_BP(const int32& Choice, const FText& ChoiceText);
 
 	/**	 calls the OnStoryPosted events and sets the proxy callback */
-	void PostStory(const bool bIsReplayed, const FFoldingSkyStoryNodeParams& Params);
-	void DelayedPostStory(bool bIsReplayed, FFoldingSkyStoryNodeParams Params);
+	void PostStory(const FFoldingSkyStoryNodeParams& Params);
 	/** Data involving the story node that is currently posted, includes the callback for the blueprint node */
 	UPROPERTY()
 		FFoldingSkyStoryNodeParams CurrentPostedStory;

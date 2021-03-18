@@ -31,24 +31,20 @@ void UFoldingSkyStoryComponent::BeginStoryGraph()
 
 void UFoldingSkyStoryComponent::SendStory_NodeInternalUseOnly(const FFoldingSkyStoryNodeParams& NodeParams)
 {
-	PostStory(false, NodeParams);
+	PostStory(NodeParams);
+}
+void UFoldingSkyStoryComponent::SendStory(const FFoldingSkyStoryNodeParams& NodeParams)
+{
+	PostStory(NodeParams);
 }
 
-void UFoldingSkyStoryComponent::ResendStory(const FOnStoryChoiceMade& ChoiceCallback, const FFoldingSkyStoryNodeParams& Params)
-{
-	PostStory(true, Params);
-}
-void UFoldingSkyStoryComponent::DelayedPostStory(bool bIsReplayed, FFoldingSkyStoryNodeParams Params)
-{
-	PostStory(bIsReplayed, Params);
-}
-void UFoldingSkyStoryComponent::PostStory(const bool bIsReplayed, const FFoldingSkyStoryNodeParams& Params)
+void UFoldingSkyStoryComponent::PostStory(const FFoldingSkyStoryNodeParams& Params)
 {	
 	ChosenValue = MIN_int32;
 	CurrentPostedStory = Params;
 	CurrentPostedStory.NodeHardRef = CurrentPostedStory.NodeCallback.GetUObject();
-	OnStoryPosted.Broadcast(bIsReplayed, Params);
-	OnStoryPosted_BP(bIsReplayed, Params);
+	OnStoryPosted.Broadcast(Params);
+	OnStoryPosted_BP(Params);
 }
 
 void UFoldingSkyStoryComponent::AcceptChoiceValue(int32 Choice)
