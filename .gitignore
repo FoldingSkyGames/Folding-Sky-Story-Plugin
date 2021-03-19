@@ -75,3 +75,6 @@ DerivedDataCache/*
 
 # GIMP files
 *.xcf
+
+# BAT FILES
+*.bat
