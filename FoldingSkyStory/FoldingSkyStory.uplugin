@@ -6,10 +6,10 @@
 	"Category": "Folding Sky Story",
 	"Description": "A plugin to allow use of a special story blueprint, node and its component parts needed for basic functions",
 	"CreatedBy": "Jason Ryan AKA Spiris",
+	"EngineVersion": "4.26.1",
 	"CreatedByURL": "https://github.com/Spiris",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
+	"DocsURL": "https://github.com/FoldingSkyGames/Folding-Sky-Story-Plugin/blob/VersionOne/GitAssets/FoldingSkyStoryPluginDocumentation.pdf",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/3d1abca7c9d54bb4a9de82235a0fe51f",
 	"CanContainContent": false,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
@@ -18,17 +18,20 @@
 		{
 			"Name": "FoldingSkyStory",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Win64" ]
 		},
 		{
 			"Name": "FoldingSkyStoryBlueprintNodes",
 			"Type": "UncookedOnly",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Win64" ]
 		},
 		{
 			"Name": "FoldingSkyStoryEditor",
 			"Type": "Editor",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Win64" ]
 		}
 	]
 }
