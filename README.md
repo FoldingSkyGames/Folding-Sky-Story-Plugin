@@ -11,6 +11,8 @@ The Folding Sky Story Plugin is an additional set of blueprint nodes for narrati
 
 ## Usage
 
+0. Know how to use Blueprints, Actors, ActorComponents, and code plugins in UE4. There are many resources available on the internet that
+   cover these topics well. I will be glad to field any questions, but answers may involve me pointing to tutorials off topic.
 1. Create a Story Blueprint by right cicking the content browser then from the "Create Advanced Asset -> Blueprints" context menu in editor
 <p align="center">
   <img src="./GitAssets/CreateStoryBlueprint.jpg" alt="Create Story Blueprint">
@@ -24,4 +26,9 @@ The Folding Sky Story Plugin is an additional set of blueprint nodes for narrati
 <p align="center">
   <img src="./GitAssets/OnStoryPosted.jpg" alt="Handle On Story Posted">
 </p>
-4. The story blueprint can be placed in world on actors just like any Actor Component
+4. Devise a way to "drive" your story graph. Calling the Accept Choice Value function will drive the graph of story nodes created in Step 2. 
+   Based on the integer input, different paths will be chosen to traverse the graph. Each time a story node is hit, the OnStoryPosted event will be triggered.
+<p align="center">
+  <img src="./GitAssets/AcceptChoiceValue.jpg" alt="Drive Story Blueprint">
+</p>
+5. The story blueprint can be placed in world on actors just like any Actor Component
