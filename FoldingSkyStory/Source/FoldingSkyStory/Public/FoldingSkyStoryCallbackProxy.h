@@ -307,33 +307,33 @@ public:
 		}
 		return Proxy;
 	}
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - One Way Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - One Way Text"), Category = "Story|Nodes")
 		static UOneWayFoldingSkyStoryCallbackProxy* CreateBasicStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - Two Way Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - Two Way Text"), Category = "Story|Nodes")
 		static UTwoWayFoldingSkyStoryCallbackProxy* CreateBasicBinaryStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices Text"), Category = "Story|Nodes")
 		static UOneChoiceFoldingSkyStoryCallbackProxy* CreateOneChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
 			FText Choice1);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(2) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(2) Text"), Category = "Story|Nodes")
 		static UTwoChoiceFoldingSkyStoryCallbackProxy* CreateTwoChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
 			FText Choice1,
 			FText Choice2);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(3) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(3) Text"), Category = "Story|Nodes")
 		static UThreeChoiceFoldingSkyStoryCallbackProxy* CreateThreeChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
 			FText Choice1,
 			FText Choice2,
 			FText Choice3);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(4) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(4) Text"), Category = "Story|Nodes")
 		static UFourChoiceFoldingSkyStoryCallbackProxy* CreateFourChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
@@ -341,7 +341,7 @@ public:
 			FText Choice2,
 			FText Choice3,
 			FText Choice4);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(5) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(5) Text"), Category = "Story|Nodes")
 		static UFiveChoiceFoldingSkyStoryCallbackProxy* CreateFiveChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
@@ -350,7 +350,7 @@ public:
 			FText Choice3,
 			FText Choice4,
 			FText Choice5);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(6) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(6) Text"), Category = "Story|Nodes")
 		static USixChoiceFoldingSkyStoryCallbackProxy* CreateSixChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
@@ -360,7 +360,7 @@ public:
 			FText Choice4,
 			FText Choice5,
 			FText Choice6);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(7) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(7) Text"), Category = "Story|Nodes")
 		static USevenChoiceFoldingSkyStoryCallbackProxy* CreateSevenChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
@@ -371,7 +371,7 @@ public:
 			FText Choice5,
 			FText Choice6,
 			FText Choice7);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(8) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(8) Text"), Category = "Story|Nodes")
 		static UEightChoiceFoldingSkyStoryCallbackProxy* CreateEightChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
@@ -383,7 +383,7 @@ public:
 			FText Choice6,
 			FText Choice7,
 			FText Choice8);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(9) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(9) Text"), Category = "Story|Nodes")
 		static UNineChoiceFoldingSkyStoryCallbackProxy* CreateNineChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
@@ -396,7 +396,7 @@ public:
 			FText Choice7,
 			FText Choice8,
 			FText Choice9);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(10) Text"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(10) Text"), Category = "Story|Nodes")
 		static UTenChoiceFoldingSkyStoryCallbackProxy* CreateTenChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			FText StoryText,
@@ -422,33 +422,33 @@ public:
 		}
 		return Proxy;
 	}
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - One Way Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - One Way Dialogue"), Category = "Story|Nodes")
 		static UOneWayFoldingSkyStoryCallbackProxy* CreateVoicedBasicStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue);	
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - Two Way Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - Two Way Dialogue"), Category = "Story|Nodes")
 		static UTwoWayFoldingSkyStoryCallbackProxy* CreateVoicedBinaryStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue);	
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices Dialogue"), Category = "Story|Nodes")
 		static UOneChoiceFoldingSkyStoryCallbackProxy* CreateVoicedOneChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
 			FText Choice1);	
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(2) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(2) Dialogue"), Category = "Story|Nodes")
 		static UTwoChoiceFoldingSkyStoryCallbackProxy* CreateVoicedTwoChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
 			FText Choice1,
 			FText Choice2);	
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(3) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(3) Dialogue"), Category = "Story|Nodes")
 		static UThreeChoiceFoldingSkyStoryCallbackProxy* CreateVoicedThreeChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
 			FText Choice1,
 			FText Choice2,
 			FText Choice3);	
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(4) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(4) Dialogue"), Category = "Story|Nodes")
 		static UFourChoiceFoldingSkyStoryCallbackProxy* CreateVoicedFourChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
@@ -456,7 +456,7 @@ public:
 			FText Choice2,
 			FText Choice3,
 			FText Choice4);	
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(5) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(5) Dialogue"), Category = "Story|Nodes")
 		static UFiveChoiceFoldingSkyStoryCallbackProxy* CreateVoicedFiveChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
@@ -465,7 +465,7 @@ public:
 			FText Choice3,
 			FText Choice4,
 			FText Choice5);	
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(6) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(6) Dialogue"), Category = "Story|Nodes")
 		static USixChoiceFoldingSkyStoryCallbackProxy* CreateVoicedSixChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
@@ -475,7 +475,7 @@ public:
 			FText Choice4,
 			FText Choice5,
 			FText Choice6);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(7) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(7) Dialogue"), Category = "Story|Nodes")
 		static USevenChoiceFoldingSkyStoryCallbackProxy* CreateVoicedSevenChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
@@ -486,7 +486,7 @@ public:
 			FText Choice5,
 			FText Choice6,
 			FText Choice7);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(8) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(8) Dialogue"), Category = "Story|Nodes")
 		static UEightChoiceFoldingSkyStoryCallbackProxy* CreateVoicedEightChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
@@ -498,7 +498,7 @@ public:
 			FText Choice6,
 			FText Choice7,
 			FText Choice8);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(9) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(9) Dialogue"), Category = "Story|Nodes")
 		static UNineChoiceFoldingSkyStoryCallbackProxy* CreateVoicedNineChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
@@ -511,7 +511,7 @@ public:
 			FText Choice7,
 			FText Choice8,
 			FText Choice9);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(10) Dialogue"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(10) Dialogue"), Category = "Story|Nodes")
 		static UTenChoiceFoldingSkyStoryCallbackProxy* CreateVoicedTenChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			TSoftObjectPtr<UDialogueWave> Dialogue,
@@ -542,33 +542,33 @@ public:
 		}
 		return Proxy;
 	}
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - Basic Custom"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", DefaultToSelf = "StoryComponent", DisplayName = "Story - Basic Custom"), Category = "Story|Nodes")
 		static UOneWayFoldingSkyStoryCallbackProxy* CreateCustomBasicStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			UStruct* CustomStruct);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - Two Way Custom"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", DefaultToSelf = "StoryComponent", DisplayName = "Story - Two Way Custom"), Category = "Story|Nodes")
 		static UTwoWayFoldingSkyStoryCallbackProxy* CreateCustomBinaryStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			UStruct* CustomStruct);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices Custom"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices Custom"), Category = "Story|Nodes")
 		static UOneChoiceFoldingSkyStoryCallbackProxy* CreateCustomOneChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			UStruct* CustomStruct,
 			FText Choice1);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(2) Custom"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(2) Custom"), Category = "Story|Nodes")
 		static USixChoiceFoldingSkyStoryCallbackProxy* CreateCustomTwoChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			UStruct* CustomStruct,
 			FText Choice1,
 			FText Choice2);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(3) Custom"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(3) Custom"), Category = "Story|Nodes")
 		static USixChoiceFoldingSkyStoryCallbackProxy* CreateCustomThreeChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			UStruct* CustomStruct,
 			FText Choice1,
 			FText Choice2,
 			FText Choice3);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(4) Custom"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(4) Custom"), Category = "Story|Nodes")
 		static USixChoiceFoldingSkyStoryCallbackProxy* CreateCustomFourChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			UStruct* CustomStruct,
@@ -576,7 +576,7 @@ public:
 			FText Choice2,
 			FText Choice3,
 			FText Choice4);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(5) Custom"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(5) Custom"), Category = "Story|Nodes")
 		static USixChoiceFoldingSkyStoryCallbackProxy* CreateCustomFiveChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			UStruct* CustomStruct,
@@ -585,7 +585,7 @@ public:
 			FText Choice3,
 			FText Choice4,
 			FText Choice5);
-	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", HidePin = "StoryComponent", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(6) Custom"), Category = "Story|Nodes")
+	UFUNCTION(BlueprintCallable, BlueprintInternalUseOnly, meta = (CustomStructureParam = "CustomStruct", DefaultToSelf = "StoryComponent", DisplayName = "Story - With Choices(6) Custom"), Category = "Story|Nodes")
 		static USixChoiceFoldingSkyStoryCallbackProxy* CreateCustomSixChoiceStoryProxyObject(
 			UFoldingSkyStoryComponent* StoryComponent,
 			UStruct* CustomStruct,
