@@ -17,15 +17,13 @@ struct FOLDINGSKYSTORY_API FFoldingSkyStoryNodeParams
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Folding Sky Story|Structs")
 		FOnStoryChoiceMade NodeCallback;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Folding Sky Story|Structs")
 		TSoftObjectPtr<UDialogueWave> Dialogue;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		FText Words;	
-	//UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	//	FString JsonData;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Folding Sky Story|Structs")
+		FText Words;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Folding Sky Story|Structs")
 		TArray<FText> Choices;
 	UPROPERTY()
 		UObject* NodeHardRef = nullptr;
@@ -40,11 +38,6 @@ public:
 	{
 		SetCallback(Callback);
 	};
-	//FFoldingSkyStoryNodeParams(const FOnStoryChoiceMade& Callback, const FString& InJson, const TArray<FText>& InChoices) : 
-	//	JsonData(InJson), Choices(InChoices) 
-	//{
-	//	SetCallback(Callback);
-	//};
 	void SetCallback(const FOnStoryChoiceMade& Callback)
 	{
 		NodeCallback = Callback;

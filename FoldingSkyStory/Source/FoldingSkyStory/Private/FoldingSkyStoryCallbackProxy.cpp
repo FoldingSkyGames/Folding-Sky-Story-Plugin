@@ -79,15 +79,6 @@ void UBaseFoldingSkyStoryCallbackProxy::Trigger(UFoldingSkyStoryComponent* Story
 	const FFoldingSkyStoryNodeParams& NodeParams = FFoldingSkyStoryNodeParams(Callback, Dialogue, Choices);
 	StoryComponent->SendStory_NodeInternalUseOnly(NodeParams);
 }
-void UBaseFoldingSkyStoryCallbackProxy::Trigger(UFoldingSkyStoryComponent* StoryComponent,
-	const FString& CustomData,
-	const TArray<FText>& Choices)
-{
-	FOnStoryChoiceMade Callback;
-	Callback.BindDynamic(this, &UBaseFoldingSkyStoryCallbackProxy::OnOptionChosen);
-	//const FFoldingSkyStoryNodeParams& NodeParams = FFoldingSkyStoryNodeParams(Callback, CustomData, Choices);
-	//StoryComponent->SendStory_NodeInternalUseOnly(NodeParams);
-}
 
 void UBaseFoldingSkyStoryCallbackProxy::OnOptionChosen(int32 Option)
 {
@@ -353,17 +344,7 @@ void UFoldingSkyStoryCallbackProxyFactory::GetFunctionByIndex(const EFoldingSkyS
 			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateVoicedTenChoiceStoryProxyObject)
 		};
 		break;
-	case EFoldingSkyStoryNodeType::CustomNode:
-		Names = TArray<FName>{
-			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateCustomBinaryStoryProxyObject),
-			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateCustomBasicStoryProxyObject),
-			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateCustomOneChoiceStoryProxyObject),
-			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateCustomTwoChoiceStoryProxyObject),
-			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateCustomThreeChoiceStoryProxyObject),
-			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateCustomFourChoiceStoryProxyObject),
-			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateCustomFiveChoiceStoryProxyObject),
-			GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateCustomSixChoiceStoryProxyObject)
-		}; 
+	case EFoldingSkyStoryNodeType::CustomNode: // NOT SUPPORTED
 		break;
 	case EFoldingSkyStoryNodeType::TextNode:
 	default:
@@ -392,104 +373,3 @@ void UFoldingSkyStoryCallbackProxyFactory::GetFunctionByIndex(const EFoldingSkyS
 		OutFunctionName = GET_FUNCTION_NAME_CHECKED(UFoldingSkyStoryCallbackProxyFactory, CreateOneChoiceStoryProxyObject);
 	}
 }
-// BEGIN CUSTOM STRUCT REGION
-#pragma region CUSTOM
-
-FString UFoldingSkyStoryCallbackProxyFactory::CreateCustomStoryProxyJson(UStruct* CustomStruct)
-{
-	TSharedRef<FJsonObject> JsonObject = MakeShareable(new FJsonObject);
-	FJsonObjectConverter::UStructToJsonObject(CustomStruct->GetClass(), CustomStruct, JsonObject, 0, 0);
-
-	FString JsonString;
-	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&JsonString);
-	FJsonSerializer::Serialize(JsonObject, Writer);
-	return JsonString;
-}
-
-UOneWayFoldingSkyStoryCallbackProxy* UFoldingSkyStoryCallbackProxyFactory::CreateCustomBasicStoryProxyObject(
-	UFoldingSkyStoryComponent* StoryComponent,
-	UStruct* CustomStruct)
-{
-	const TArray<FText>& Choices = StoryComponent->GetBasicChoices();
-	const FString& CustomJson = CreateCustomStoryProxyJson(CustomStruct);
-	return TriggerCustomStoryNode<UOneWayFoldingSkyStoryCallbackProxy>(StoryComponent, CustomJson, Choices);
-}
-UTwoWayFoldingSkyStoryCallbackProxy* UFoldingSkyStoryCallbackProxyFactory::CreateCustomBinaryStoryProxyObject(
-	UFoldingSkyStoryComponent* StoryComponent,
-	UStruct* CustomStruct)
-{
-	const TArray<FText>& Choices = StoryComponent->GetBinaryChoices();
-	const FString& CustomJson = CreateCustomStoryProxyJson(CustomStruct);
-	return TriggerCustomStoryNode<UTwoWayFoldingSkyStoryCallbackProxy>(StoryComponent, CustomJson, Choices);
-}
-UOneChoiceFoldingSkyStoryCallbackProxy* UFoldingSkyStoryCallbackProxyFactory::CreateCustomOneChoiceStoryProxyObject(
-	UFoldingSkyStoryComponent* StoryComponent,
-	UStruct* CustomStruct,
-	FText Choice1)
-{
-	const TArray<FText>& Choices = TArray<FText>{ Choice1 };
-	const FString& CustomJson = CreateCustomStoryProxyJson(CustomStruct);
-	return TriggerCustomStoryNode<UOneChoiceFoldingSkyStoryCallbackProxy>(StoryComponent, CustomJson, Choices);
-}
-USixChoiceFoldingSkyStoryCallbackProxy* UFoldingSkyStoryCallbackProxyFactory::CreateCustomTwoChoiceStoryProxyObject(
-	UFoldingSkyStoryComponent* StoryComponent,
-	UStruct* CustomStruct,
-	FText Choice1,
-	FText Choice2)
-{
-	const TArray<FText>& Choices = TArray<FText>{ Choice1, Choice2 };
-	const FString& CustomJson = CreateCustomStoryProxyJson(CustomStruct);
-	return TriggerCustomStoryNode<USixChoiceFoldingSkyStoryCallbackProxy>(StoryComponent, CustomJson, Choices);
-}
-USixChoiceFoldingSkyStoryCallbackProxy* UFoldingSkyStoryCallbackProxyFactory::CreateCustomThreeChoiceStoryProxyObject(
-	UFoldingSkyStoryComponent* StoryComponent,
-	UStruct* CustomStruct,
-	FText Choice1,
-	FText Choice2,
-	FText Choice3)
-{
-	const TArray<FText>& Choices = TArray<FText>{ Choice1, Choice2, Choice3 };
-	const FString& CustomJson = CreateCustomStoryProxyJson(CustomStruct);
-	return TriggerCustomStoryNode<USixChoiceFoldingSkyStoryCallbackProxy>(StoryComponent, CustomJson, Choices);
-}
-USixChoiceFoldingSkyStoryCallbackProxy* UFoldingSkyStoryCallbackProxyFactory::CreateCustomFourChoiceStoryProxyObject(
-	UFoldingSkyStoryComponent* StoryComponent,
-	UStruct* CustomStruct,
-	FText Choice1,
-	FText Choice2,
-	FText Choice3,
-	FText Choice4)
-{
-	const TArray<FText>& Choices = TArray<FText>{ Choice1, Choice2, Choice3, Choice4 };
-	const FString& CustomJson = CreateCustomStoryProxyJson(CustomStruct);
-	return TriggerCustomStoryNode<USixChoiceFoldingSkyStoryCallbackProxy>(StoryComponent, CustomJson, Choices);
-}
-USixChoiceFoldingSkyStoryCallbackProxy* UFoldingSkyStoryCallbackProxyFactory::CreateCustomFiveChoiceStoryProxyObject(
-	UFoldingSkyStoryComponent* StoryComponent,
-	UStruct* CustomStruct,
-	FText Choice1,
-	FText Choice2,
-	FText Choice3,
-	FText Choice4,
-	FText Choice5)
-{
-	const TArray<FText>& Choices = TArray<FText>{ Choice1, Choice2, Choice3, Choice4, Choice5 };
-	const FString& CustomJson = CreateCustomStoryProxyJson(CustomStruct);
-	return TriggerCustomStoryNode<USixChoiceFoldingSkyStoryCallbackProxy>(StoryComponent, CustomJson, Choices);
-}
-USixChoiceFoldingSkyStoryCallbackProxy* UFoldingSkyStoryCallbackProxyFactory::CreateCustomSixChoiceStoryProxyObject(
-	UFoldingSkyStoryComponent* StoryComponent,
-	UStruct* CustomStruct,
-	FText Choice1,
-	FText Choice2,
-	FText Choice3,
-	FText Choice4,
-	FText Choice5,
-	FText Choice6)
-{
-	const TArray<FText>& Choices = TArray<FText>{ Choice1, Choice2, Choice3, Choice4, Choice5, Choice6 };
-	const FString& CustomJson = CreateCustomStoryProxyJson(CustomStruct);
-	return TriggerCustomStoryNode<USixChoiceFoldingSkyStoryCallbackProxy>(StoryComponent, CustomJson, Choices);
-}
-#pragma endregion
-// END CUSTOM STRUCT REGION
